@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, Link } from "react-router-dom";
 import HomePage from '../HomePage';
+import DetailsPage from '../DetailsPage';
 import './styles.css'
 
 function App() {
@@ -59,12 +60,12 @@ function App() {
             setEpisodeDetails={setEpisodeDetails}
             />} 
           />
-          {/* <Route 
+          <Route 
             path="/details"
-            element={<DetailsPage data={episodeDetails} 
+            element={<DetailsPage episodeDetails={episodeDetails} 
             />}
           />
-          <Route path='/search' element={
+          {/* <Route path='/search' element={
             <SearchPage setEpisodeDetails={setEpisodeDetails}/>
           }/>  */}
         </Routes>
