@@ -19,14 +19,14 @@ export default function Card({episode, setEpisodeDetails}) {
 
     // console.log(imageURL)
 
-    let strStyling = "font-bold"
+    let strStyling = ""
 
-    if (episode.name.length > 20 ) {
-        strStyling = strStyling + "text-base"
-    }
-
-    if (episode.name.length > 25 ) {
-        strStyling = strStyling + "text-base"
+    if (episode.name.length < 20) {
+        strStyling = "font-bold text-xl"
+    } else if (episode.name.length >= 20 && episode.name.length <= 28 ) {
+        strStyling = "font-bold text-base"
+    } else if (episode.name.length > 28) {
+        strStyling = "font-bold text-base text-center whitespace-normal max-w-xs w-40 truncate"
     }
 
     return (
@@ -34,9 +34,10 @@ export default function Card({episode, setEpisodeDetails}) {
             <figure className="shadow-lg cursor-pointer m-2 border-2 border-black rounded-lg hover:transform hover:scale-105 transition ease duration-500">
                 <img src={imageURL} alt={episode.name} className="w-[15rem] h-[20vh]"/>
             </figure>
-            {/* <p className="text-xl font-bold">{episode.name}</p> */}
-            <p className={`font-bold ${episode.name.length > 20 ? 'text-base' : 'text-xl'} ${episode.name.length > 25 ? 'whitespace-normal' : 'whitespace-nowrap'} ${episode.name.length > 25 ? 'max-w-full' : 'max-w-xs'}`}>{episode.name}</p>
-            <p className="text-base font-bold">Episode: {episode.episode_number}</p>            
+            <div className='flex flex-col items-center'>
+                <p className={strStyling}>{episode.name}</p>
+                <p className="text-base">Episode: {episode.episode_number}</p>            
+            </div>
         </div>
     )
 }
