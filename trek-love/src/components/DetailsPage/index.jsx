@@ -22,6 +22,7 @@ export default function DetailsPage({episodeDetails}) {
     return (
         <>
             <h1>{episodeDetails.name}</h1>
+            <br />
             <div className="flex flex-col items-center">
                 <div className="w-[40%] border-2 border-black rounded-lg">
                     <figure className="shadow-lg cursor-pointer m-2 border-2 border-black rounded-lg">

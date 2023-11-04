@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, Link } from "react-router-dom";
 import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
+import SearchPage from '../SearchPage';
 import './styles.css'
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
   // useEffect on episodes state variable so that I can 
   // validate that it is getting populated.
   useEffect(() => {
-    console.log(episodes);
+    // console.log(episodes);
   }, [episodes]);
 
   // Async function to query API & JSONify the response
@@ -65,9 +66,12 @@ function App() {
             element={<DetailsPage episodeDetails={episodeDetails} 
             />}
           />
-          {/* <Route path='/search' element={
-            <SearchPage setEpisodeDetails={setEpisodeDetails}/>
-          }/>  */}
+          <Route path='/search' element={
+            <SearchPage 
+              episodes={episodes}
+              setEpisodeDetails={setEpisodeDetails}
+            />
+          }/> 
         </Routes>
       </div>
     </>
