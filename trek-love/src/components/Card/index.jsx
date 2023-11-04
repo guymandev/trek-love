@@ -34,7 +34,7 @@ export default function Card({episode, setEpisodeDetails}) {
             <figure className="shadow-lg cursor-pointer m-2 border-2 border-black rounded-lg hover:transform hover:scale-105 transition ease duration-500">
                 <img src={imageURL} alt={episode.name} className="w-[15rem] h-[20vh]"/>
             </figure>
-            <div className='flex flex-col items-center'>
+            <div className="flex flex-col items-center">
                 <p className={strStyling}>{episode.name}</p>
                 <p className="text-base">Episode: {episode.episode_number}</p>            
             </div>
