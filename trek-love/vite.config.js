@@ -7,4 +7,14 @@ import path from 'path'
 export default defineConfig({
   root: path.resolve(__dirname, 'frontend'),
   plugins: [react()],
+  server: {
+    proxy: {
+        '/api': {
+            target: `http://localhost:${process.env.PORT}`,
+            changeOrigin: true,
+            secure: false,
+            ws: true,
+        }
+    }
+  }
 })

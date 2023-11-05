@@ -1,3 +1,5 @@
+import CommentSection from '../CommentSection'
+
 export default function DetailsPage({episodeDetails}) {
 
     // console.log(episodeDetails)
@@ -39,6 +41,7 @@ export default function DetailsPage({episodeDetails}) {
                     <p className="text-left"><span className="text-base font-bold">Costume Design:</span> {strCostume}</p>
                 </div>
             </div>
+            <CommentSection episodeId={episodeDetails.id} />
         </>
     )
 }
