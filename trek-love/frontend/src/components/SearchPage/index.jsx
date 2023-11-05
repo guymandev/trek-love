@@ -27,7 +27,7 @@ export default function SearchPage({episodes, setEpisodeDetails}) {
     return (
         <>            
             <label htmlFor="search">
-                <h2 id="search">Search for a Trek Episode</h2>
+                <h2 id="search" className="text-lg font-bold">Search for a Trek Episode</h2>
             </label>
             <br />
             <input
