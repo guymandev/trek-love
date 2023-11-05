@@ -5,20 +5,22 @@ export default function HomePage({episodes, setEpisodeDetails}) {
     const [episodeNumber, setEpisodeNumber] = useState(1)
     const [queryResults, setQueryResults] = useState([])
 
-    // This effect will run whenever query changes
+    // This effect will run whenever the episodes
+    // change, i.e. when they become fully populated, 
+    // and also whenever the episodeNumber state variable
+    // changes, i.e. whenever the user makes a selection
+    // in the Season dropdown.
     useEffect(() => {       
         // Use the query state variable to filter the 
         // episodes object array, returning only those that
         // match the selected season.
         const filteredEpisodes = episodes.filter((episode) => {
-            // console.log(`episode.season_number: ` + typeof(episode.season_number))
-            // console.log(`episodeNumber: ` + typeof(episode.season_number))
             return episode.season_number === Number(episodeNumber);
         });
         
         setQueryResults(filteredEpisodes);
         
-    }, [episodeNumber]);
+    }, [episodeNumber, episodes]);
 
     return (
         <>
@@ -38,11 +40,16 @@ export default function HomePage({episodes, setEpisodeDetails}) {
                 </select>
             </div>
             <br />
-            <Gallery 
-                episodes={queryResults}
-                setEpisodeDetails={setEpisodeDetails}    
-            />
-
+            {/* We have to wait until queryResults is fully populated.
+                Otherwise, the Gallery is sent an empty data set. */}
+            {queryResults.length > 0 ? (
+                <Gallery
+                    episodes={queryResults}
+                    setEpisodeDetails={setEpisodeDetails}
+                />
+            ) : (
+                <p>Loading...</p>
+            )}
         </>
     )
 }
