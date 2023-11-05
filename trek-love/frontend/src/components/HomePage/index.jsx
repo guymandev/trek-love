@@ -2,25 +2,25 @@ import { useState, useEffect } from "react"
 import Gallery from "../Gallery"
 
 export default function HomePage({episodes, setEpisodeDetails}) {
-    const [episodeNumber, setEpisodeNumber] = useState(1)
+    const [seasonNumber, setSeasonNumber] = useState(1)
     const [queryResults, setQueryResults] = useState([])
 
     // This effect will run whenever the episodes
     // change, i.e. when they become fully populated, 
-    // and also whenever the episodeNumber state variable
+    // and also whenever the seasonNumber state variable
     // changes, i.e. whenever the user makes a selection
     // in the Season dropdown.
     useEffect(() => {       
-        // Use the query state variable to filter the 
+        // Use the seasonNumber state variable to filter the 
         // episodes object array, returning only those that
         // match the selected season.
         const filteredEpisodes = episodes.filter((episode) => {
-            return episode.season_number === Number(episodeNumber);
+            return episode.season_number === Number(seasonNumber);
         });
         
         setQueryResults(filteredEpisodes);
         
-    }, [episodeNumber, episodes]);
+    }, [seasonNumber, episodes]);
 
     return (
         <>
@@ -32,7 +32,7 @@ export default function HomePage({episodes, setEpisodeDetails}) {
                     name="season" 
                     id="season" 
                     className="border rounded-md"
-                    onChange={(event) => setEpisodeNumber(event.target.value)}
+                    onChange={(event) => setSeasonNumber(event.target.value)}
                 >
                     <option value="1" className="w-5 border">Season 1</option>
                     <option value="2" className="w-5 border">Season 2</option>
