@@ -3,6 +3,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
 import SearchPage from '../SearchPage';
+import AuthFormPage from '../AuthFormPage'
 import './styles.css'
 
 function App() {
@@ -44,21 +45,29 @@ function App() {
       <nav>        
         <div className="flex relative justify-between">        
           <Link to="/" className="flex-shrink-0 text-gray-500 font-bold text-2xl">
-            <h2>Trek Love</h2>
+              <h2>Trek Love</h2>
           </Link>
           <div className="flex-grow">      
             <Link to="/search" className="flex justify-end text-gray-500 font-bold text-xl">
-              <h3>Episode Searcher</h3>
-            </Link>
-          </div>   
+                <h3>Episode Searcher</h3>
+            </Link>            
+          </div>
+          <Link to="/auth/signup">
+              <h4 className="text-gray-500 font-bold text-xl">Sign Up</h4>
+          </Link>
+          <Link to="/auth/login">
+              <h4 className="text-gray-500 font-bold text-xl">Log In</h4>
+          </Link>
         </div>                  
       </nav>
       <br />
       <div >
         <Routes>
-          <Route path="/" element={<HomePage 
-            episodes={episodes}
-            setEpisodeDetails={setEpisodeDetails}
+          <Route 
+            path="/" 
+            element={<HomePage 
+                episodes={episodes}
+                setEpisodeDetails={setEpisodeDetails}
             />} 
           />
           <Route 
@@ -66,12 +75,17 @@ function App() {
             element={<DetailsPage episodeDetails={episodeDetails} 
             />}
           />
-          <Route path='/search' element={
-            <SearchPage 
-              episodes={episodes}
-              setEpisodeDetails={setEpisodeDetails}
-            />
-          }/> 
+          <Route 
+            path='/search' 
+            element={<SearchPage 
+                episodes={episodes}
+                setEpisodeDetails={setEpisodeDetails}
+            />}
+          />
+          <Route 
+            path="/auth/:formType" 
+            element={<AuthFormPage />} 
+          /> 
         </Routes>
       </div>
     </>
