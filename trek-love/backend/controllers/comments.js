@@ -53,11 +53,6 @@ router.get('/:episodeId', function (req, res) {
 
 // Create Route (POST/Create): This route receives a POST request and
 // creates a new comment document using the request body
-// router.post('/', (req, res) => {
-//     db.Comment.create(req.body)
-//         .then(comment => res.json(comment))
-// })
-
 router.post('/', authMiddleware, (req, res) => {
     // Perform any actions that require authorization
     db.Comment.create({
@@ -71,14 +66,6 @@ router.post('/', authMiddleware, (req, res) => {
 
 // Update Route (PUT/Update): This route receives a PUT request and 
 // edits the specified comment document using the request body
-// router.put('/:id', (req, res) => {
-//     db.Comment.findByIdAndUpdate(
-//         req.params.id,
-//         req.body,
-//         { new: true }
-//     )
-//         .then(comment => res.json(comment))
-// })
 
 router.put('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the update request is the same user who created the comment
@@ -98,11 +85,6 @@ router.put('/:id', authMiddleware, async (req, res) => {
 
 // Destroy Route (DELETE/Delete): This route deletes a comment document 
 // using the URL parameter (which will always be the comment document's ID)
-// router.delete('/:id', (req, res) => {
-//     db.Comment.findByIdAndDelete(req.params.id)
-//         .then(() => res.json({ deletedCommentId: req.params.id }))
-// })
-
 router.delete('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the delete request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)

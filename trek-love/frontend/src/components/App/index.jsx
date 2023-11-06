@@ -10,6 +10,7 @@ function App() {
   // Store API data here
   const [episodes, setEpisodes] = useState([])
   const [episodeDetails, setEpisodeDetails] = useState({})
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // useEffect on episodes state variable so that I can 
   // validate that it is getting populated.
@@ -39,26 +40,49 @@ function App() {
     getData(url)
   }, [])
 
-
   return (
     <>      
-      <nav>        
-        <div className="flex relative justify-between">        
-          <Link to="/" className="flex-shrink-0 text-gray-500 font-bold text-2xl">
-              <h2>Trek Love</h2>
+      <nav className="flex justify-between items-center">
+        <Link to="/" className="text-gray-500 font-bold text-2xl">
+          <h2>Trek Love</h2>
+        </Link>
+        <Link to="/search" className="text-gray-500 font-bold text-xl">
+          <h3>Episode Searcher</h3>
+        </Link>
+        <div className="hidden space-x-4 md:flex">          
+          <Link to="/auth/signup" className="text-gray-500 font-bold text-xl">
+            <h4>Sign Up</h4>
           </Link>
-          <div className="flex-grow">      
-            <Link to="/search" className="flex justify-end text-gray-500 font-bold text-xl">
-                <h3>Episode Searcher</h3>
-            </Link>            
+          <Link to="/auth/login" className="text-gray-500 font-bold text-xl">
+            <h4>Log In</h4>
+          </Link>
+        </div>
+        {!isMenuOpen && (
+          <button
+            className="md:hidden menu-button"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
+        )}
+        {isMenuOpen && (
+          <div className="flex md:hidden menu">
+            <button
+              className="md:hidden menu-button"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              ☰
+            </button>
+            <div className='menu-links bg-slate-300 border rounded-md'>
+              <Link to="/auth/signup" className="text-gray-500 font-bold text-sm">
+                <h4>Sign Up</h4>
+              </Link>
+              <Link to="/auth/login" className="text-gray-500 font-bold text-sm">
+                <h4>Log In</h4>
+              </Link>
+            </div>
           </div>
-          <Link to="/auth/signup">
-              <h4 className="text-gray-500 font-bold text-xl">Sign Up</h4>
-          </Link>
-          <Link to="/auth/login">
-              <h4 className="text-gray-500 font-bold text-xl">Log In</h4>
-          </Link>
-        </div>                  
+        )}
       </nav>
       <br />
       <div >

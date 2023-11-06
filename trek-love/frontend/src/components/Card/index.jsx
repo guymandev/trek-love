@@ -1,20 +1,25 @@
+import { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import audioPath from "../../assets/tos-turboliftdoor.mp3"
 
 export default function Card({episode, setEpisodeDetails}) {
     const navigate = useNavigate();
 
-    const handleClick = () => {
-        setEpisodeDetails(episode);
-        // Navigate to details route after updating details data
-        // playAudio();
-        navigate('/details'); 
-    }
+    // reference
+    const audioRef = useRef();
 
-    function playAudio() {
-        const audio = document.getElementById("door_audio");
-        audio.play();
-    }
+    const handleClick = () => {
+        audioRef.current.play();
+        setEpisodeDetails(episode);
+        // Navigate to details route after updating details data 
+        setTimeout(() => navigate('/details'), 750);
+    }    
+
+    // function playAudio() {
+    //     const audio = document.getElementById("door_audio");
+    //     console.log(audio)
+    //     audio.play();
+    // }
 
     let imageURL = `https://image.tmdb.org/t/p/w300${episode.still_path}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
 
@@ -30,7 +35,10 @@ export default function Card({episode, setEpisodeDetails}) {
 
     return (
         <div onClick={handleClick}>
-            <audio id="door_audio" src={audioPath}></audio>
+            {/* <audio id="door_audio" src={audioPath} ref={audioRef} type="audio/MP3"></audio> */}
+            <audio id="door_audio" ref={audioRef}>
+                <source src={audioPath} type="audio/mpeg" />
+            </audio>
             <figure className="shadow-lg cursor-pointer m-2 border-2 border-black rounded-lg hover:transform hover:scale-105 transition ease duration-500">
                 <img src={imageURL} alt={episode.name} className="w-[15rem] h-[20vh]"/>
             </figure>

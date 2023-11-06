@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Initially hide the menu items */
+.menu {
+  /* display: none; */
+  position: relative;
+}
+
+/* Show the menu items when the screen width is below 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .menu-links {
+    /* display: block; */
+    position: absolute;
+    top: 45px;
+  }
+}
+
+/* Hide the menu button by default (for larger screens) */
+.menu-button {
+  display: none;
+}
+
+/* Show the menu button when the screen width is below 768px (adjust as needed) */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+}
