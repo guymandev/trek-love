@@ -4,6 +4,7 @@ import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
 import SearchPage from '../SearchPage';
 import AuthFormPage from '../AuthFormPage'
+import TMDB from "../../assets/TMDB.png"
 import './styles.css'
 
 function App() {
@@ -112,6 +113,12 @@ function App() {
           /> 
         </Routes>
       </div>
+      <br />
+      <br />
+      <footer className='text-cyan-300'>
+        <img src={TMDB} alt="" className="mx-auto block m-2"/>
+        "This website uses TMDB and the TMDB APIs but is not endorsed, certified, or otherwise approved by TMDB."
+      </footer>
     </>
   )
 }
