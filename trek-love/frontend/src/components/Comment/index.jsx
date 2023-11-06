@@ -36,18 +36,18 @@ export default function Comment({ data, refreshComments }) {
 
     //  Default JSX of each comment
     let commentElement = <div
-        className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
+        className="bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
         <p className="font-bold">{data.name}</p>
         <p className="my-2">{data.content}</p>
         <div className="flex justify-end">
             <button
                 onClick={() => { setShowEditForm(true) }}
-                className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                className="text-slate-200 hover:bg-violet-800 font-bold py-2 px-4 bg-violet-700 rounded cursor-pointer mr-2">
                 Edit
             </button>
             <button
                 onClick={handleDelete}
-                className="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded">
+                className="bg-red-600 hover:bg-red-700 text-slate-200 font-bold py-2 px-4 rounded">
                 Delete
             </button>
         </div>
@@ -58,10 +58,10 @@ export default function Comment({ data, refreshComments }) {
     if (showEditForm) {
         commentElement = <form
             onSubmit={handleSubmit}
-            className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
+            className="bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-1 w-[80vw] mx-auto text-right">
             <input
                 name="name"
-                className="px-2 py-1 w-full bg-gray-100"
+                className="px-2 py-1 w-full bg-cyan-100"
                 placeholder="Your name"
                 value={editFormData.name}
                 onChange={handleInputChange}
@@ -69,7 +69,7 @@ export default function Comment({ data, refreshComments }) {
             <br />
             <textarea
                 name="content"
-                className="p-2 my-2 h-[100px] w-full bg-gray-100"
+                className="p-2 my-2 h-[100px] w-full bg-cyan-100"
                 placeholder="Share your Trek Love!"
                 value={editFormData.content}
                 onChange={handleInputChange}
@@ -77,12 +77,12 @@ export default function Comment({ data, refreshComments }) {
             <div>
                 <button
                     onClick={() => { setShowEditForm(false) }}
-                    className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                    className="text-slate-200 hover:bg-zinc-500 font-bold py-2 px-4 bg-zinc-600 rounded cursor-pointer mr-2">
                     Close
                 </button>
                 <button
                     type="submit"
-                    className="text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2">
+                    className="text-slate-200 hover:bg-emerald-700 font-bold py-2 px-4 bg-emerald-800 rounded cursor-pointer mr-2">
                     Post
                 </button>
             </div>

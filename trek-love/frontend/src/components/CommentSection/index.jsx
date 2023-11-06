@@ -74,18 +74,18 @@ export default function commentSection({ episodeId }) {
     }
 
     return (
-        <div className='comment-section bg-gray-300 rounded-lg p-4 pb-10 mt-4 space-y-4 relative'>
+        <div className='comment-section bg-sky-200 rounded-lg p-4 pb-10 mt-4 space-y-4 relative'>
             <h1 className='text-xl font-bold'>Viewer Love</h1>
             <button
                 onClick={toggleCreateForm}
-                className="top-0 right-5 absolute text-white hover:bg-green-800 font-bold py-2 px-4 bg-green-900 rounded cursor-pointer mr-2"
+                className="top-0 right-5 absolute text-slate-200 hover:bg-indigo-700 font-bold py-2 px-4 bg-indigo-800 rounded cursor-pointer mr-2"
             >
                 {btnText}
             </button>
             {
                 showCreateForm && <form
                     onSubmit={handleSubmit}
-                    className="bg-gray-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
+                    className="bg-slate-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
                     <input
                         name="name"
                         className="px-2 py-1 w-full bg-gray-100"
@@ -103,7 +103,7 @@ export default function commentSection({ episodeId }) {
                     />
                     <button
                         type="submit"
-                        className="text-white hover:bg-gray-800 font-bold py-2 px-4 bg-gray-700 rounded cursor-pointer mr-2">
+                        className="text-slate-200 hover:bg-indigo-400 font-bold py-2 px-4 bg-indigo-500 rounded cursor-pointer mr-2">
                         Post
                     </button>
                 </form>
