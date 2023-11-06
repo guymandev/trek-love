@@ -1,9 +1,18 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Gallery from "../Gallery"
+import audioPath from "../../assets/tos-computer-working.mp3"
 
 export default function SearchPage({episodes, setEpisodeDetails}) {
     const [query, setQuery] = useState('')
     const [queryResults, setQueryResults] = useState([])
+
+    // reference
+    const audioRef = useRef();
+
+    // Play "working" computer sound upon load of component.
+    useEffect(() => {
+        audioRef.current.play();
+    },[]) 
 
     // This effect will run whenever query changes
     useEffect(() => {       
@@ -44,6 +53,9 @@ export default function SearchPage({episodes, setEpisodeDetails}) {
                 episodes={queryResults}
                 setEpisodeDetails={setEpisodeDetails}    
             />
+            <audio id="tos-working" ref={audioRef}>
+                <source src={audioPath} type="audio/mpeg" />
+            </audio>
         </>
     )
 }
