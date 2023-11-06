@@ -27,7 +27,7 @@ export default function SearchPage({episodes, setEpisodeDetails}) {
     return (
         <>            
             <label htmlFor="search">
-                <h2 id="search" className="text-lg font-bold">Search for a Trek Episode</h2>
+                <img className="mx-auto block" src="https://fontmeme.com/permalink/231107/5cf8438e56f260976d97222bb5cdeff0.png" alt="" />
             </label>
             <br />
             <input

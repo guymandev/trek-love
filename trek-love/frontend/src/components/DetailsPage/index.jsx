@@ -23,22 +23,22 @@ export default function DetailsPage({episodeDetails}) {
 
     return (
         <>
-            <h1>{episodeDetails.name}</h1>
+            <h1 className='text-cyan-300'>{episodeDetails.name}</h1>
             <br />
             <div className="flex flex-col items-center">
                 <div className="w-[40%] border-2 border-black rounded-lg">
                     <figure className="shadow-lg cursor-pointer m-2 border-2 border-black rounded-lg">
                         <img src={imageURL} alt={episodeDetails.name} />
                     </figure>
-                    <p className="text-base font-bold">Episode: {episodeDetails.episode_number}</p>            
+                    <p className="text-base font-bold text-cyan-300">Episode: {episodeDetails.episode_number}</p>            
                 </div>
                 <br />
                 <div className="w-[40%] border-2 border-black rounded-lg">
-                    <p className="text-left"><span className="text-base font-bold">Plot Summary:</span> {episodeDetails.overview}</p>
-                    <p className="text-left"><span className="text-base font-bold">Writer:</span> {strWriter}</p>
-                    <p className="text-left"><span className="text-base font-bold">Director:</span> {strDirector}</p>
-                    <p className="text-left"><span className="text-base font-bold">Music:</span> {strMusic}</p>
-                    <p className="text-left"><span className="text-base font-bold">Costume Design:</span> {strCostume}</p>
+                    <p className="text-left text-cyan-300"><span className="text-base font-bold text-cyan-600">Plot Summary:</span> {episodeDetails.overview}</p>
+                    <p className="text-left text-cyan-300"><span className="text-base font-bold text-cyan-600">Writer:</span> {strWriter}</p>
+                    <p className="text-left text-cyan-300"><span className="text-base font-bold text-cyan-600">Director:</span> {strDirector}</p>
+                    <p className="text-left text-cyan-300"><span className="text-base font-bold text-cyan-600">Music:</span> {strMusic}</p>
+                    <p className="text-left text-cyan-300"><span className="text-base font-bold text-cyan-600">Costume Design:</span> {strCostume}</p>
                 </div>
             </div>
             <CommentSection episodeId={episodeDetails.id} />

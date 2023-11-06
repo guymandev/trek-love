@@ -43,17 +43,17 @@ function App() {
   return (
     <>      
       <nav className="flex justify-between items-center">
-        <Link to="/" className="text-gray-500 font-bold text-2xl">
+        <Link to="/" className="text-cyan-300 font-bold text-2xl">
           <h2>Trek Love</h2>
         </Link>
-        <Link to="/search" className="text-gray-500 font-bold text-xl">
+        <Link to="/search" className="text-cyan-300 font-bold text-xl">
           <h3>Episode Searcher</h3>
         </Link>
         <div className="hidden space-x-4 md:flex">          
-          <Link to="/auth/signup" className="text-gray-500 font-bold text-xl">
+          <Link to="/auth/signup" className="text-cyan-300 font-bold text-xl">
             <h4>Sign Up</h4>
           </Link>
-          <Link to="/auth/login" className="text-gray-500 font-bold text-xl">
+          <Link to="/auth/login" className="text-cyan-300 font-bold text-xl">
             <h4>Log In</h4>
           </Link>
         </div>
@@ -73,11 +73,11 @@ function App() {
             >
               ☰
             </button>
-            <div className='menu-links bg-slate-300 border rounded-md'>
-              <Link to="/auth/signup" className="text-gray-500 font-bold text-sm">
+            <div className='menu-links bg-slate-400 border rounded-md'>
+              <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
                 <h4>Sign Up</h4>
               </Link>
-              <Link to="/auth/login" className="text-gray-500 font-bold text-sm">
+              <Link to="/auth/login" className="text-cyan-700 font-bold text-sm">
                 <h4>Log In</h4>
               </Link>
             </div>

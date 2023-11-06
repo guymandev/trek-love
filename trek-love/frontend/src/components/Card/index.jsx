@@ -11,31 +11,25 @@ export default function Card({episode, setEpisodeDetails}) {
     const handleClick = () => {
         audioRef.current.play();
         setEpisodeDetails(episode);
-        // Navigate to details route after updating details data 
-        setTimeout(() => navigate('/details'), 750);
+        // Navigate to details route after updating details data
+        // But wait long enough for audio to play!! :) 
+        setTimeout(() => navigate('/details'), 800);
     }    
-
-    // function playAudio() {
-    //     const audio = document.getElementById("door_audio");
-    //     console.log(audio)
-    //     audio.play();
-    // }
 
     let imageURL = `https://image.tmdb.org/t/p/w300${episode.still_path}?api_key=${import.meta.env.VITE_TMDB_API_KEY}`
 
     let strStyling = ""
 
     if (episode.name.length < 20) {
-        strStyling = "font-bold text-xl"
+        strStyling = "font-bold text-xl text-cyan-300"
     } else if (episode.name.length >= 20 && episode.name.length <= 28 ) {
-        strStyling = "font-bold text-base"
+        strStyling = "font-bold text-base text-cyan-300"
     } else if (episode.name.length > 28) {
-        strStyling = "font-bold text-base text-center whitespace-normal max-w-xs w-40 truncate"
+        strStyling = "font-bold text-base text-cyan-300 text-center whitespace-normal max-w-xs w-40 truncate"
     }
 
     return (
         <div onClick={handleClick}>
-            {/* <audio id="door_audio" src={audioPath} ref={audioRef} type="audio/MP3"></audio> */}
             <audio id="door_audio" ref={audioRef}>
                 <source src={audioPath} type="audio/mpeg" />
             </audio>
@@ -44,7 +38,7 @@ export default function Card({episode, setEpisodeDetails}) {
             </figure>
             <div className="flex flex-col items-center">
                 <p className={strStyling}>{episode.name}</p>
-                <p className="text-base">Episode: {episode.episode_number}</p>            
+                <p className="text-base text-cyan-300">Episode: {episode.episode_number}</p>            
             </div>
         </div>
     )
