@@ -6,12 +6,15 @@ import SearchPage from '../SearchPage';
 import AuthFormPage from '../AuthFormPage'
 import TMDB from "../../assets/TMDB.png"
 import './styles.css'
+import { set } from 'mongoose';
 
 function App() {
   // Store API data here
   const [episodes, setEpisodes] = useState([])
+  // Other state variables
   const [episodeDetails, setEpisodeDetails] = useState({})
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   // useEffect on episodes state variable so that I can 
   // validate that it is getting populated.
@@ -37,9 +40,22 @@ function App() {
 
   // Query the API for intial mount of the application
   useEffect(() => {
+    // Check whether there's a user still logged in.
+    // If so, update the state variable to reflect that.
+    const haveToken = localStorage.getItem('userToken')
+    if (haveToken != '') {
+      setLoggedIn(true)
+    }
     const url = `https://api.themoviedb.org/3/tv/253?api_key=${import.meta.env.VITE_TMDB_API_KEY}&append_to_response=season/1,season/2,season/3`
     getData(url)
   }, [])
+
+  function logout() {
+    // Clear localStorage and toggle state variable
+    // to show appropriate menu options.
+    localStorage.setItem('userToken', '')
+    setLoggedIn(false)
+  }
 
   return (
     <>      
@@ -50,6 +66,7 @@ function App() {
         <Link to="/search" className="text-cyan-300 font-bold text-xl">
           <h3>Episode Searcher</h3>
         </Link>
+        {!loggedIn && (
         <div className="hidden space-x-4 md:flex">          
           <Link to="/auth/signup" className="text-cyan-300 font-bold text-xl">
             <h4>Sign Up</h4>
@@ -58,6 +75,11 @@ function App() {
             <h4>Log In</h4>
           </Link>
         </div>
+        )}
+        {loggedIn && (
+          <a href="" onClick={logout} className="text-cyan-300 font-bold text-xl">Logout</a>
+        )}  
+
         {!isMenuOpen && (
           <button
             className="md:hidden menu-button"
@@ -109,7 +131,9 @@ function App() {
           />
           <Route 
             path="/auth/:formType" 
-            element={<AuthFormPage />} 
+            element={<AuthFormPage 
+              setLoggedIn={setLoggedIn}
+            />} 
           /> 
         </Routes>
       </div>

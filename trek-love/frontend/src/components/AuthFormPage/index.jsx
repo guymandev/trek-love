@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { signUp, logIn } from "../../../utils/backend"
 
-export default function AuthFormPage() {
+export default function AuthFormPage({setLoggedIn}) {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -22,15 +22,30 @@ export default function AuthFormPage() {
         // check what the URL parameter is to determine what request to make
         if (formType === 'login') {
             const { token } = await logIn(formData)
-            localStorage.setItem('userToken', token)
+            // console.log(token)
+            // If we get a good token, then call 
+            // the Auth middleware route and 
+            // update the loggedIn state variable in App
+            // component to true, using setter function.
+            if (token) {
+                localStorage.setItem('userToken', token)
+                setLoggedIn(true)
+            }
         } else {
             const { token } = await signUp(formData)
-            localStorage.setItem('userToken', token)
+            // If we get a good token, then call 
+            // the Auth middleware route and 
+            // update the loggedIn state variable in App
+            // component to true, using setter function.
+            // console.log(token)
+            if (token) {
+                localStorage.setItem('userToken', token)
+                setLoggedIn(true)
+            }
         }
         // redirect to the home page after signing/logging in
         navigate('/')
     }
-
 
     let actionText = null
     formType === 'login' ? actionText = 'Log In' : actionText = 'Sign Up'
