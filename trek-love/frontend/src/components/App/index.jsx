@@ -67,29 +67,26 @@ function App() {
           <h3>Episode Searcher</h3>
         </Link>
         {/* Conditional logic to show/hide links to Signup/Login or Logout */}
-        {!loggedIn && (
-        <div className="hidden space-x-4 md:flex">          
-          <Link to="/auth/signup" className="text-cyan-300 font-bold text-xl">
-            <h4>Sign Up</h4>
-          </Link>
-          <Link to="/auth/login" className="text-cyan-300 font-bold text-xl">
-            <h4>Log In</h4>
-          </Link>
-        </div>
-        )}
-        {loggedIn && (
+        {loggedIn ? (
           <a href="" onClick={logout} className="hidden md:block text-cyan-300 font-bold text-xl">Logout</a>
-        )}  
+        ) : ( 
+          <div className="hidden space-x-4 md:flex">          
+            <Link to="/auth/signup" className="text-cyan-300 font-bold text-xl">
+              <h4>Sign Up</h4>
+            </Link>
+            <Link to="/auth/login" className="text-cyan-300 font-bold text-xl">
+              <h4>Log In</h4>
+            </Link>
+          </div>
+        )} 
         
-        {!isMenuOpen && (
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            ☰
-          </button>
-        )}
-        {isMenuOpen && (
+        {/* Everything from here to the end of the nav tag is only 
+        visible when the screen gets smaller than 768px */}
+
+        {/* Conditional check for whether dropdown from hamburger menu has
+        been toggled open. */}
+        {isMenuOpen ? (
+          // Display hamburger menu and dropdown items
           <div className="flex relative md:hidden">
             <button
               className="md:hidden"
@@ -97,22 +94,32 @@ function App() {
             >
               ☰
             </button>
-            {/* Conditional logic to show/hide links to 
-            Signup/Login or Logout */}
-            {/* {!loggedIn && ( */}
+            {/* Dropdown menu items */}
             <div className='md:hidden absolute top-14 bg-slate-400 border rounded-md'>
-              <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
+              {/* Conditional logic to show/hide links to 
+              Signup/Login or Logout */}
+              {loggedIn ? (
+                <a href="" onClick={logout} className="text-cyan-700 font-bold text-xl">Logout</a>
+              ) : ( 
+                <>
+                <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
                 <h4>Sign Up</h4>
-              </Link>
-              <Link to="/auth/login" className="text-cyan-700 font-bold text-sm">
+                </Link>
+                <Link to="/auth/login" className="text-cyan-700 font-bold text-sm">
                 <h4>Log In</h4>
-              </Link>
+                </Link>
+                </>
+              )}
             </div>
-            {/* )}
-            {loggedIn && (
-              <a href="" onClick={logout} className="text-cyan-300 font-bold text-xl">Logout</a>
-            )} */}
           </div>
+        ) : ( // ELSE
+          // Only display hamburger menu icon, by itself.
+          <button
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            ☰
+          </button>
         )}
       </nav>
       <br />
