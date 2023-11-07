@@ -52,14 +52,14 @@ export default function AuthFormPage({setLoggedIn}) {
 
     return (
         <div className="flex items-center justify-center h-[90vh]">
-            <div className="bg-gray-800 rounded-lg shadow-xl p-8 w-full max-w-md">
+            <div className="bg-sky-200 rounded-lg shadow-xl p-8 w-full max-w-md">
                 <h2
-                    className="text-3xl text-center font-bold text-gray-100 mb-8">
+                    className="text-3xl text-center font-bold text-sky-600 mb-8">
                     {actionText}
                 </h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                     <div>
-                        <label className="block text-gray-100 font-bold mb-2" htmlFor="email">
+                        <label className="block text-sky-600 font-bold mb-2" htmlFor="email">
                             Email
                         </label>
                         <input
@@ -74,7 +74,7 @@ export default function AuthFormPage({setLoggedIn}) {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-100 font-bold mb-2" htmlFor="password">
+                        <label className="block text-sky-600 font-bold mb-2" htmlFor="password">
                             Password
                         </label>
                         <input
@@ -92,7 +92,7 @@ export default function AuthFormPage({setLoggedIn}) {
                     <div>
                         <button
                             type="submit"
-                            className="w-full py-2 px-4 bg-green-700 text-gray-100 rounded-md hover:bg-green-800 transition duration-300">
+                            className="w-full py-2 px-4 bg-indigo-600 hover:bg-indigo-500 text-gray-100 rounded-md transition duration-300">
                             {actionText}
                         </button>
                     </div>

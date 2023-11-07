@@ -86,7 +86,7 @@ function App() {
         {/* Conditional check for whether dropdown from hamburger menu has
         been toggled open. */}
         {isMenuOpen ? (
-          // Display hamburger menu and dropdown items
+          // Display hamburger icon button AND dropdown items
           <div className="flex relative md:hidden">
             <button
               className="md:hidden"
@@ -113,7 +113,7 @@ function App() {
             </div>
           </div>
         ) : ( // ELSE
-          // Only display hamburger menu icon, by itself.
+          // Only display hamburger icon button, by itself.
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
