@@ -85,7 +85,7 @@ export default function commentSection({ episodeId }) {
             {
                 showCreateForm && <form
                     onSubmit={handleSubmit}
-                    className="bg-slate-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
+                    className="max-w-[60vw] bg-slate-100 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto text-right">
                     <input
                         name="name"
                         className="px-2 py-1 w-full bg-gray-100"
