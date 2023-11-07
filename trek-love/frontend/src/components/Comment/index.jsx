@@ -36,7 +36,7 @@ export default function Comment({ data, refreshComments }) {
 
     //  Default JSX of each comment
     let commentElement = <div
-        className="bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
+        className="max-w-[50vw] bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-2 w-[80vw] mx-auto">
         <p className="font-bold">{data.name}</p>
         <p className="my-2">{data.content}</p>
         <div className="flex justify-end">
@@ -58,7 +58,7 @@ export default function Comment({ data, refreshComments }) {
     if (showEditForm) {
         commentElement = <form
             onSubmit={handleSubmit}
-            className="bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-1 w-[80vw] mx-auto text-right">
+            className="max-w-[50vw] bg-sky-50 rounded-lg p-4 my-4 border-gray-700 border-1 w-[80vw] mx-auto text-right">
             <input
                 name="name"
                 className="px-2 py-1 w-full bg-cyan-100"
