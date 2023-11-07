@@ -22,7 +22,7 @@ export default function AuthFormPage({setLoggedIn}) {
         // check what the URL parameter is to determine what request to make
         if (formType === 'login') {
             const { token } = await logIn(formData)
-            // console.log(token)
+            console.log(token)
             // If we get a good token, then call 
             // the Auth middleware route and 
             // update the loggedIn state variable in App

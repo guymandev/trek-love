@@ -66,6 +66,7 @@ function App() {
         <Link to="/search" className="text-cyan-300 font-bold text-xl">
           <h3>Episode Searcher</h3>
         </Link>
+        {/* Conditional logic to show/hide links to Signup/Login or Logout */}
         {!loggedIn && (
         <div className="hidden space-x-4 md:flex">          
           <Link to="/auth/signup" className="text-cyan-300 font-bold text-xl">
@@ -77,26 +78,29 @@ function App() {
         </div>
         )}
         {loggedIn && (
-          <a href="" onClick={logout} className="text-cyan-300 font-bold text-xl">Logout</a>
+          <a href="" onClick={logout} className="hidden md:block text-cyan-300 font-bold text-xl">Logout</a>
         )}  
-
+        
         {!isMenuOpen && (
           <button
-            className="md:hidden menu-button"
+            className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             ☰
           </button>
         )}
         {isMenuOpen && (
-          <div className="flex md:hidden menu">
+          <div className="flex relative md:hidden">
             <button
-              className="md:hidden menu-button"
+              className="md:hidden"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               ☰
             </button>
-            <div className='menu-links bg-slate-400 border rounded-md'>
+            {/* Conditional logic to show/hide links to 
+            Signup/Login or Logout */}
+            {/* {!loggedIn && ( */}
+            <div className='md:hidden absolute top-14 bg-slate-400 border rounded-md'>
               <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
                 <h4>Sign Up</h4>
               </Link>
@@ -104,6 +108,10 @@ function App() {
                 <h4>Log In</h4>
               </Link>
             </div>
+            {/* )}
+            {loggedIn && (
+              <a href="" onClick={logout} className="text-cyan-300 font-bold text-xl">Logout</a>
+            )} */}
           </div>
         )}
       </nav>

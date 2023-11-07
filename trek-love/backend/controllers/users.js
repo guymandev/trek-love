@@ -27,9 +27,9 @@ const config = require('../../jwt.config.js')
 --------------------------------------------------------------- */
 // SIGN UP ROUTE (create user)
 router.post('/signup', (req, res) => {
-    console.log('Entered Signup Route...')
-    console.log('req.body is')
-    console.log(req.body)
+    // console.log('Entered Signup Route...')
+    // console.log('req.body is')
+    // console.log(req.body)
     // Create a new user
     db.User.create(req.body)
         .then(user => {
@@ -46,9 +46,9 @@ router.post('/signup', (req, res) => {
 
 // LOG IN (log into a user account)
 router.post('/login', async (req, res) => {
-    console.log('Entered Login Route...')
-    console.log('req.body is')
-    console.log(req.body)
+    // console.log('Entered Login Route...')
+    // console.log('req.body is')
+    // console.log(req.body)
     // attempt to find the user by their email in the database
     const foundUser = await db.User.findOne({ email: req.body.email })
     // check to:
