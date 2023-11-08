@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import audioPath from "../../assets/tos-turboliftdoor.mp3"
 
 export default function Card({episode, setEpisodeDetails}) {

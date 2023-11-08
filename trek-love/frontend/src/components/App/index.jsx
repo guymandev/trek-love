@@ -103,12 +103,12 @@ function App() {
                 <a href="" onClick={logout} className="text-cyan-700 font-bold text-xl">Logout</a>
               ) : ( 
                 <>
-                <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
-                <h4>Sign Up</h4>
-                </Link>
-                <Link to="/auth/login" className="text-cyan-700 font-bold text-sm">
-                <h4>Log In</h4>
-                </Link>
+                  <Link to="/auth/signup" className="text-cyan-700 font-bold text-sm">
+                    <h4>Sign Up</h4>
+                  </Link>
+                  <Link to="/auth/login" className="text-cyan-700 font-bold text-sm">
+                    <h4>Log In</h4>
+                  </Link>
                 </>
               )}
             </div>
