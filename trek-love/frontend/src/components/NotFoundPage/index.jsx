@@ -1,30 +1,41 @@
 import { Link } from "react-router-dom"
-import { useRef, useEffect } from "react"
+// import { useRef, useEffect } from "react"
 import computerAudio from "../../assets/tos_unabletocomply.mp3"
 import spockAudio from "../../assets/spock_illogical.mp3"
 import spockPic from "../../assets/spock_next_to_computer.png"
 
 export default function NotFoundPage() {
 
-    const audioRef1 = useRef();
-    const audioRef2 = useRef();
+    // const audioRef1 = useRef();
+    // const audioRef2 = useRef();
 
-     // Play audio clips upon load of component.
-    useEffect(() => {
-        // Play the first audio clip
-        audioRef1.current.play();
+    // // Play audio click when user mouses over Main element
+    // const handleMouseEnter = () => {
+    //     audioRef1.current.play();
+    // }
 
-        // Wait for the first audio clip to finish, 
-        // then play the second one.
-        audioRef1.current.addEventListener('ended', () => {
-        audioRef2.current.play();
-        });
+    // // Play second audio when the event listener inside 
+    // // useEffect indicates the event for the useRef has
+    // // completed.
+    // const handleAudioEnded = () => {
+    //     audioRef2.current.play();
+    // }
 
-        // Clean up event listeners when the component unmounts
-        return () => {
-        audioRef1.current.removeEventListener('ended', () => {});
-        };
-    }, []);
+    //  // Upon load of component create event listener for 
+    //  // first audio clip, which will then call the second
+    //  // audio clip.
+    // useEffect(() => {
+    //     // Add event listener for 
+    //     audioRef1.current.addEventListener('ended', handleAudioEnded);
+
+    //     // Clean up event listeners when the component unmounts
+    //     return () => {
+    //         console.log(`audioRef1 is type ${typeof(audioRef1)}`)
+    //         if (audioRef1 != null) {
+    //             audioRef1.current.removeEventListener('ended', handleAudioEnded);
+    //         }
+    //     };
+    // }, []);
 
     return (
         <main className="h-[93vh] w-full flex flex-col justify-center items-center bg-indigo-600">
@@ -45,12 +56,12 @@ export default function NotFoundPage() {
                 </span>
             </button>
             </Link>
-            <audio ref={audioRef1}>
+            {/* <audio ref={audioRef1}>
                 <source src={computerAudio} type="audio/mp3" />
             </audio>
             <audio ref={audioRef2}>
                 <source src={spockAudio} type="audio/mp3" />
-            </audio>
+            </audio> */}
         </main>
     )
 }
