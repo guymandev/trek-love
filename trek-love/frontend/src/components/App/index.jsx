@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Routes, Route, Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
 import SearchPage from '../SearchPage';
@@ -16,6 +17,8 @@ function App() {
   const [episodeDetails, setEpisodeDetails] = useState({})
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const navigate = useNavigate();
 
   // useEffect on episodes state variable so that I can 
   // validate that it is getting populated.
@@ -56,6 +59,8 @@ function App() {
     // to show appropriate menu options.
     localStorage.setItem('userToken', '')
     setLoggedIn(false)
+    // Redirect to HomePage after logout
+    navigate('/')
   }
 
   return (
