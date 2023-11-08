@@ -17,7 +17,7 @@ MERN fullstack application with full CRUD and JWT implementation.
 
 ### CRUD Table
 
-![CRUD table](frontend/public/CRUD_table_trek_love.png "CRUD table")
+![CRUD table](trek-love/frontend/public/CRUD_table_trek_love.png "CRUD table")
 
 ### Installation Instructions for running locally
 
@@ -59,18 +59,18 @@ JWT_SECRET_KEY can be anything you like.
 
 ### Wireframes
 
-![Home page](frontend/public/trek_love_pg1.png "Home page")\
-![Episode Detail](frontend/public/trek_love_pg2.png "Episode Detail")\
-![SignUp/LogIn](frontend/public/trek_love_pg3.png "SignUp/Login")\
-![Search](frontend/public/trek_love_pg4.png "Search Page")
+![Home page](trek-love/frontend/public/trek_love_pg1.png "Home page")\
+![Episode Detail](trek-love/frontend/public/trek_love_pg2.png "Episode Detail")\
+![SignUp/LogIn](trek-love/frontend/public/trek_love_pg3.png "SignUp/Login")\
+![Search](trek-love/frontend/public/trek_love_pg4.png "Search Page")
 
 ### Screenshots
 
-![Home page](frontend/public/trek_love_home_page.png "Home page")\
-![Detail Page](frontend/public/trek_love_detail_page.png "Detail Page")\
-![SignUp/Login](frontend/public/trek_love_sign_up.png "SignUp/Login")\
-![Search Page](frontend/public/trek_love_search_page.png "Search Page")\
-![404 Page](frontend/public/trek_love_404_page.png "404 Page")
+![Home page](trek-love/frontend/public/trek_love_home_page.png "Home page")\
+![Detail Page](trek-love/frontend/public/trek_love_detail_page.png "Detail Page")\
+![SignUp/Login](trek-love/frontend/public/trek_love_sign_up.png "SignUp/Login")\
+![Search Page](trek-love/frontend/public/trek_love_search_page.png "Search Page")\
+![404 Page](trek-love/frontend/public/trek_love_404_page.png "404 Page")
 
 ### Learnings
 
