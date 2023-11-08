@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRe } from "react"
 import Gallery from "../Gallery"
 import audioPath from "../../assets/tos-computer-working.mp3"
 

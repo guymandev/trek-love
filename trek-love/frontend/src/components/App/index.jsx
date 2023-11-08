@@ -4,9 +4,10 @@ import HomePage from '../HomePage';
 import DetailsPage from '../DetailsPage';
 import SearchPage from '../SearchPage';
 import AuthFormPage from '../AuthFormPage'
+import NotFoundPage from '../NotFoundPage';
 import TMDB from "../../assets/TMDB.png"
 import './styles.css'
-import { set } from 'mongoose';
+// import { set } from 'mongoose';
 
 function App() {
   // Store API data here
@@ -149,6 +150,9 @@ function App() {
             element={<AuthFormPage 
               setLoggedIn={setLoggedIn}
             />} 
+          />
+          <Route 
+            path="/*"   element={<NotFoundPage />} 
           /> 
         </Routes>
       </div>
