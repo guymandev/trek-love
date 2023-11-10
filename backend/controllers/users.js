@@ -15,7 +15,7 @@ const router = express.Router()
 
 /* Require the db connection and models
 --------------------------------------------------------------- */
-const db = require('../models')
+const db = require('../models/index.js')
 
 
 /* Require the JWT config

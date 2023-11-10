@@ -13,6 +13,10 @@ export async function postComment(comment) {
 }
 
 export async function updateComment(comment, id) {
+    // Debugging
+    console.log(`Inside updateComment in utils/backend.js file, comment is ${comment}`)
+    console.log(`Inside updateComment in utils/backend.js file, id is ${id}`)
+
     const { data } = await axios.put(`/api/comments/${id}`, comment, authHeader)
     return data
 }

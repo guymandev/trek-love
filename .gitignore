@@ -88,6 +88,12 @@ web_modules/
 out
 
 # Nuxt.js build / generate output
+# Might want to remove "dist" from below list,
+# if you want to manually generate the build.
+
+# vite build
+# push that to GitHub and then deploy to Heroku
+# if you're exceeding Heroku's memory allocation.
 .nuxt
 dist
 dist-ssr

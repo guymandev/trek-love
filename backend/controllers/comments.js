@@ -14,7 +14,7 @@ const router = express.Router()
 
 /* Require the db connection, and models
 ---------------------------------------------------------- */
-const db = require('../models')
+const db = require('../models/index.js')
 
 /* Require the JWT config
 --------------------------------------------------------------- */
@@ -26,11 +26,18 @@ const config = require('../../jwt.config.js')
 const authMiddleware = (req, res, next) => {
     // Check if the 'Authorization' header is present and has the token
     const token = req.headers.authorization;
+    // Debugging
+    console.log(`Inside authMiddleware, token is ${token}`)
+
     if (token) {
         try {
             // Decode the token using the secret key and add the 
             // decoded payload to the request object
             const decodedToken = jwt.decode(token, config.jwtSecret);
+
+            // Debugging
+            console.log(`Inside authMiddleware decodedToken is ${decodedToken}`)
+
             req.user = decodedToken;
             next();
         } catch (err) {
@@ -70,8 +77,10 @@ router.post('/', authMiddleware, (req, res) => {
 router.put('/:id', authMiddleware, async (req, res) => {
     // Check if the user who sent the update request is the same user who created the comment
     const userComment = await db.Comment.findById(req.params.id)
-    // const result = (userComment.userId.toString() === req.user.id)
-    // console.log(`Result of user evaluation is ${result}`)
+    // Debugging
+    const result = (userComment.userId.toString() === req.user.id)
+    console.log(`Inside Comment Update route, result of user evaluation is ${result}`)
+
     if (userComment.userId.toString() === req.user.id) {
         // If it is the original author, update the comment
         const newComment = await db.Comment.findByIdAndUpdate(
