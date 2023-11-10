@@ -3,7 +3,7 @@ MERN fullstack application with full CRUD and JWT implementation.
 
 ### Heroku link
 
-[Todo Manager](https://gj-todo-manager-c54dd460c99b.herokuapp.com/)
+[Trek Love](https://trek-love-402634987769.herokuapp.com/)
 
 ### Technologies used
 
