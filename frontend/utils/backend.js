@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
+// const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
 
 export async function getComments(episodeId) {
     const { data } = await axios.get(`/api/comments/${episodeId}`)
@@ -8,20 +8,25 @@ export async function getComments(episodeId) {
 }
 
 export async function postComment(comment) {
+    // Retrieve authHeader
+    const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
+    
     const { data } = await axios.post('/api/comments', comment, authHeader)
     return data
 }
 
 export async function updateComment(comment, id) {
-    // Debugging
-    console.log(`Inside updateComment in utils/backend.js file, comment is ${comment}`)
-    console.log(`Inside updateComment in utils/backend.js file, id is ${id}`)
+    // Retrieve authHeader
+    const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
 
     const { data } = await axios.put(`/api/comments/${id}`, comment, authHeader)
     return data
 }
 
 export async function deleteComment(id) {
+    // Retrieve authHeader
+    const authHeader = { headers: { 'Authorization': localStorage.getItem('userToken') } }
+    
     const { data } = await axios.delete(`/api/comments/${id}`, authHeader)
     return data
 }

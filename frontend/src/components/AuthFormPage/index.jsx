@@ -23,9 +23,6 @@ export default function AuthFormPage({setLoggedIn}) {
         if (formType === 'login') {
             const { token } = await logIn(formData)
 
-            // Debugging
-            console.log(`Inside AuthForm, token is ${token}`)
-            
             // If we get a good token, then call 
             // the Auth middleware route and 
             // update the loggedIn state variable in App
