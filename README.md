@@ -188,3 +188,9 @@ const authMiddleware = (req, res, next) => {
     }
 };
 ```
+
+### Todos
+
+* Refactor app so that userToken is stored in a state variable inside App component (in addition to being in localStorage). Then pass in that userToken into functions in frontend/utils/backend.js that require authHeader info.
+* Add labels to menu to display email of logged in user.
+* Conditionally display AuthFormPage component only if there is no logged in user, i.e. Show/Hide authform based on state variable "loggedIn".
