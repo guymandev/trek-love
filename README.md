@@ -14,10 +14,14 @@ MERN fullstack application with full CRUD and JWT implementation.
 * Cors
 * dotenv
 * jwt-simple
+* Tailwind (CSS)
 
 ### CRUD Table
 
 ![CRUD table](frontend/public/CRUD_table_trek_love.png "CRUD table")
+
+### Entity Relationship Diagram
+![ERD Diagram](frontend/public/erd_trek_love.png "ERD Diagram")
 
 ### Installation Instructions for running locally
 
