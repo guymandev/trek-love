@@ -3,7 +3,7 @@ MERN fullstack application with full CRUD and JWT implementation.
 
 ### Heroku link
 
-[Trek Love](https://trek-love-402634987769.herokuapp.com/)
+[Trek Love](https://trek-love-64d8d89baa2b.herokuapp.com/)
 
 ### Technologies used
 
